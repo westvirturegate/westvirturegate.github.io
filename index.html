@@ -27,6 +27,16 @@ ga('send', 'pageview');
 <meta property="og:locale" content="ja_JP">
 <meta property="article:author" content="westvirturegate">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@komesunchu">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="こめす">
+<meta property="og:url" content="https://github.com/westvirturegate/westvirturegate.github.io.git/index.html">
+<meta property="og:site_name" content="こめす">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://github.com/westvirturegate/westvirturegate.github.io.git/themes/komesu.jpeg">
+<meta property="article:author" content="westvirturegate">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/westvirturegate/westvirturegate.github.io.git/themes/komesu.jpeg">
   
     <link rel="alternate" href="/atom.xml" title="こめす" type="application/atom+xml">
   
@@ -81,6 +91,96 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
+    <article id="post-Ethereumの理論価格" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/15/Ethereum%E3%81%AE%E7%90%86%E8%AB%96%E4%BE%A1%E6%A0%BC/" class="article-date">
+  <time datetime="2020-02-15T13:32:27.000Z" itemprop="datePublished">2020-02-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E3%83%87%E3%83%BC%E3%82%BF%E5%88%86%E6%9E%90/">データ分析</a>►<a class="article-category-link" href="/categories/%E6%8A%95%E8%B3%87/">投資</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+<div class="article-gallery">
+  <div class="article-gallery-photos">
+    
+      <a class="article-gallery-img fancybox" href="/img/ETH/ETH.png" rel="gallery_ck6of3ojv0003owwf1fc15wd8">
+        <img src="/img/ETH/ETH.png" itemprop="image">
+      </a>
+    
+  </div>
+</div>
+
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/15/Ethereum%E3%81%AE%E7%90%86%E8%AB%96%E4%BE%A1%E6%A0%BC/">Ethereum価格をメトカーフの法則を使って分析してみた</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div class="tocStart"></div>
+
+<!-- toc -->
+
+<ul>
+<li><a href="#isariamunojia-ge-womoderingusitemiru">イーサリアムの価格をモデリングしてみる</a><ul>
+<li><a href="#metokahunofa-ze">メトカーフの法則</a></li>
+<li><a href="#isariamuhanetutowaku">イーサリアムはネットワーク</a></li>
+<li><a href="#moderushi">モデル式</a></li>
+</ul>
+</li>
+<li><a href="#shi-ji-nodetadeshi-sitemiru">実際のデータで試してみる</a><ul>
+<li><a href="#moderunojian-zheng">モデルの検証</a></li>
+</ul>
+</li>
+<li><a href="#jin-hui-noshang-sheng-xiang-chang-nokao-cha">今回の上昇相場の考察</a><ul>
+<li><a href="#li-lun-jia-ge-tonobi-jiao">理論価格との比較</a></li>
+</ul>
+</li>
+<li><a href="#jin-hou-nozhan-kai">今後の展開</a></li>
+<li><a href="#omake">おまけ</a></li>
+</ul>
+<!-- tocstop -->
+
+<div class="tocEnd"></div>
+
+
+<p>年明けからイーサ価格が上昇を続けています。どうやら仮想通貨全般が上昇相場にあるようです。</p>
+<p>そんな仮想通貨の中でも、私はイーサリアムを激推ししています。</p>
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">なんかプチバブルが来て前から激推ししてたイーサリアムが倍増してて嬉しい。<br>仮想通貨の中でもイーサリアムにはこういうスマートコントラクトの需要があるから強いと思ってる。<br>これがバブルなのか確かめるために値段とアクティブアカウント数のデータ集めてるなう。 <a href="https://t.co/X8iTqm0nOM" target="_blank" rel="noopener">https://t.co/X8iTqm0nOM</a></p>&mdash; こめす (@komesunchu) <a href="https://twitter.com/komesunchu/status/1227857307570040832?ref_src=twsrc%5Etfw" target="_blank" rel="noopener">February 13, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>これを機にイーサリアムが流行ってくれると良いな、などと思っているところです。</p>
+<p>そこで今回は、イーサ価格の変動の背景にある現象を探るべく、簡単なデータ分析をしてみました。<br>そんなに高度なデータ分析はしていませんが、なかなかきれいなグラフが得られたので是非見ていってください。</p>
+        
+          <p class="article-more-link">
+            <a href="/2020/02/15/Ethereum%E3%81%AE%E7%90%86%E8%AB%96%E4%BE%A1%E6%A0%BC/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/westvirturegate/westvirturegate.github.io.git/2020/02/15/Ethereum%E3%81%AE%E7%90%86%E8%AB%96%E4%BE%A1%E6%A0%BC/" data-id="ck6of3ojv0003owwf1fc15wd8" class="article-share-link">共有</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E3%83%87%E3%83%BC%E3%82%BF%E5%88%86%E6%9E%90/" rel="tag">データ分析</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%95%E8%B3%87/" rel="tag">投資</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-AIにできること、できないこと（後編）" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/02/08/AI%E3%81%AB%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%93%E3%81%A8%E3%80%81%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E3%81%93%E3%81%A8%EF%BC%88%E5%BE%8C%E7%B7%A8%EF%BC%89/" class="article-date">
@@ -104,53 +204,15 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <p>AIに仕事を奪われる、技術的破壊などが最近よく話題に上がります。<br>私も未熟ながら機械学習関連の研究をしている身なので、やはりいろいろと考えることがあります。<br>そこで、AIにできること、できないこと、人間に残される役割などについて書いてみました。<br>長くなってしまったので、前編と後編に分けてあります。<br>今回は後編です。<a href="https://westvirturegate.github.io/2020/02/07/AI%E3%81%AB%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%93%E3%81%A8%E3%80%81%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E3%81%93%E3%81%A8%EF%BC%88%E5%89%8D%E7%B7%A8%EF%BC%89/" target="_blank" rel="noopener">前編はこちら</a></p>
-<div class="toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#ainidekinaikotoha">AIにできないことは？</a><ul>
-<li><a href="#aihagemuwozuo-renai">AIはゲームを作れない</a></li>
-<li><a href="#zhe-xue-de-nagemushe-ji">哲学的なゲーム設計</a></li>
-</ul>
-</li>
-<li><a href="#ren-jian-nican-saretayi-ge">人間に残された役割</a><ul>
-<li><a href="#ainogemutoideorogi">AIのゲームとイデオロギー</a></li>
-<li><a href="#aihaideorogiwojia-su-suru">AIはイデオロギーを加速する</a></li>
-</ul>
-</li>
-<li><a href="#matome">まとめ</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-
-<h1><span id="ainidekinaikotoha">AIにできないことは？</span></h1><p>前編では、AIにできること、AIが人間より得意なことについてみてきました。<br>ではAIには何ができないのでしょうか。今回はここを中心にみていきます。</p>
-<h2><span id="aihagemuwozuo-renai">AIはゲームを作れない</span></h2><p>AIはルールとデータさえ与えられれば、そのゲームを人間よりも上手にこなせるのでした。<br>しかしそれはゲームの中での話です。ゲーム自体を作ることはできません。当たり前の話ですが、ゲームのプレイヤーはゲームそのものを変えることはできないのです。</p>
-<p>少し検証してみます。<br>生体データを解析することで、人の感情を推定する感情認識AIというものがあるということは前編で述べました。<br>ではこれを用いて、「最適なゲームを作るというゲーム」を作ることはできないのでしょうか。<br>つまり、次のようなゲームを設計するのです。こうすれば、「最適なゲームを作るというゲーム」になるはずです。実際には技術的にかなり困難なのですが、とりあえずそこには目をつむって進めます。</p>
-<p>「制約」は法律や倫理的規範に則って定めます。これらのルールに従ったゲームしか作れないという制約です。<br>「目的関数」として人間の”望ましい”感情をおき、その最大化を目指します。<br>「データ」としては、あらゆる環境データとともに、生体データも用意します。<br>これでとりあえずゲームは設計できました。しかし、すぐにこれではうまくいかないことがわかります。</p>
-<p>「法律や倫理規範」、「望ましい感情」などはこのゲームの外部から与えられなければなりません。<br>そしてこれをAIに決めさせようとすると、また更に大きなゲームを作らなければなりません。外部からルールが与えられない限り、このゲームの拡大は止まりません。<br>「ゲームを設計する」という行為は、原理的にゲームの外部からしか行えません。技術的な困難さを無視してもなお解決できないのです。<br>ゲームのプレイヤーであるAIは、純粋にゲーム内部の存在です。<br>よって、AIがゲームを作れないというのもまた原理的なものです。</p>
-<p>前編で述べた「仮説生成」もAIはできません。しかしそれは技術的な問題です。技術が進歩すれば仮説生成AIが実現する可能性は十分にあります。<br>しかしそれに対して、「自己完結的なゲーム設計AI」というのは、原理的に不可能です。どんなに技術が進歩しても、実現することはありえません。<br>原理的に不可能、これが「AIはゲームを作れない」ということの意味です。</p>
-<h2><span id="zhe-xue-de-nagemushe-ji">哲学的なゲーム設計</span></h2><p>ゲームの設計というのはとても重要です。これがAIの性能を左右します。もう少し具体的に見ていきます。</p>
-<p>データの収集は、学習の精度にかかわります。目的に沿ったデータが大量にあれば、学習もうまくいきそうだというのはイメージできると思います。逆に、目的に沿わないデータをいくら集めても学習は進みません。身長のデータをいくら集めても、人間の感情を判定するAIは作れないわけです。</p>
-<p>目的関数の関数形や、パラメータ空間の制約などは、計算（目的関数の最大化）がうまくいくかどうかを左右します。<br>これらは数学的、情報学的な部分であり、エンジニアの腕の見せ所となる部分です。</p>
-<p>しかしゲームの設計に必要なのは、こういった技術的な要素だけではありません。<br>AIになにを求め、どういった手段を許すのかということを決めなければなりません。これは数学や情報学の枠をこえた問題です。<br>つきつめれば、哲学や人類学の分野になるとさえ言えます。</p>
-<p>前編で挙げた具体例を再利用して、具体的に見ていきましょう。<br>前編で自動運転AIに与えたゲームを改悪してみます。目的関数を、「目的地へ早くたどり着けば高得点」だけにしてみましょう。<br>こうすれば、確かに人間より正確に早く目的地にたどり着くAIができあがるでしょう。<br>しかしこのAIは、早くたどり着くために急加速、急停止を繰り返すようになってしまう可能性があります。<br>こういった荒い運転では、おそらく乗り心地としては最悪のものになるでしょう。<br>ゲーム設計が下手だったために、顧客の満足の行くAIが作れなかったわけです。<br>しかしここで顧客満足度を第一の目的関数にしてしまうと、他の交通利用者や環境などに対する配慮がかけたものになるかもしれません。<br>個の利益と社会の利益、これらのバランスをどうとるかという問題は、例えば政治哲学的なものになるでしょう。</p>
-<p>今度は医者AIに与えたゲームを改悪してみます。与える目的関数が、人間の生存率を可能な限り高めれば高得点、というものだとしたら。<br>この目的関数で学習したAIは、たしかに生存率を最大化するでしょう。しかし、回復する見込みのない末期の癌患者にたいして、死ぬことはないものの副作用の強い強力な治療を行うかもしれません。命は長引いたとしても、患者は苦痛に苦しみ続けます。<br>また、健康に悪影響を及ぼすものはなんであれすべてご法度です。酒、タバコはもちろん、白米やラーメン、赤身肉まで制限されます。健康はたしかに大切ですが、これではバランスが悪すぎますね。<br>しかしだからといって患者満足度を最優先にすると、患者が短期的な満足を追求した結果、長期的な損失を被る可能性があります。<br>これは知識の格差がある状態で、知識が少ない方にどれだけの決定権をあたえるべきかという倫理学的な問題ともいえます。</p>
-<p>以上のように、AIに与えるゲームの設計はとても複雑な、哲学的、倫理学的な問題を含むのです。これは何をすべきで何をしてはいけないか、そして何を価値とするかを決める価値基準の問題です。<br>価値基準を与える。これが人間にできてAIにできないことなのです。</p>
-<h1><span id="ren-jian-nican-saretayi-ge">人間に残された役割</span></h1><p>人間には、ゲームを設計するという役割が残されていそうです。では、現在もっとも普及しているゲームとの関わりにおいて、人間とAIの果たす役割をそれぞれ見ていきます。</p>
-<h2><span id="ainogemutoideorogi">AIのゲームとイデオロギー</span></h2><p>ゲームの設計がAIの性能を決めるということ、そして使用者の価値基準にも関わってくるということをみてきました。<br>ここで、現在すべてのAIが直接間接問わず従っているであろうゲーム、価値基準をみてみます。</p>
-<p>代表的なものを挙げると、「人間には生まれながらに人権というものがある。」「財産の私的所有が認められている。」「国家の主権は国民にある。」などがあります。<br>これらは自由主義や資本主義、民主主義というゲームのルールです。イデオロギーや観念体系とも呼ばれています。<br>これらはいま世界で最もポピュラーなゲームと言えるでしょう。<br>この個人の自由と資本を最大化するゲームは、一見素晴らしいものに見えます。そして現に、歴史上最善とも言えるほどに、人間社会に価値を与えてきました。</p>
-<p>しかしこのゲームで高得点を目指してきた結果、環境破壊や格差社会という深刻な問題も現れてきています。ゲームの設計が不十分であったために、自然と社会に大きなダメージを与えることになったのです。<br>AIは人間よりも遥かに早く、効率的にゲームを攻略するのでした。それは確かに、利用者の自由や資本や政治的影響力を最大化するでしょう。そしてその結果、より効率的に、より深刻な環境破壊や格差社会問題をもたらしかねません。</p>
-<h2><span id="aihaideorogiwojia-su-suru">AIはイデオロギーを加速する</span></h2><p>もし資本主義を単純に追及するAIに判断を任せてしまえば、おそらく巨大な資本の前に貧しい人の命は軽視されるでしょう。<br>AIが最大化した資本に、貧しい人が隷属する世界になってしまいます。<br>自由民主主義を同時に追求することである程度これを避けられるかもしれません。しかし現在の仕組みのままでは衆愚政治に陥ったり、環境破壊に突き進んだりする可能性は高いでしょう。<br>これらのイデオロギーでの「高得点」を追求した世界は、目指すべき理想の世界でしょうか。<br>そもそも、私たちがAIに職を奪われるという危機感も、イデオロギー的な問題提起にほかなりません。<br>この危機感は、「人間は何らかの経済活動をしなければならない」という資本主義の価値基準から導かれるのです。<br>人間がAIによって豊かになるか、逆に職を奪われて貧しくなるかは、どういったイデオロギーを編み出すかにかかっているとも言えます。</p>
-<p>盲目的に資本主義というイデオロギーを採用し続ければ、人間の将来は悲惨なものになるでしょう。<br>雇用の破壊は、資本主義のゲームにおいては致命的なものになりえます。<br>そしてまさにその資本主義ゲームの攻略によって、雇用の破壊はもたらされうるわけです。<br>ゲームを加速するAIの登場によって、問題はより差し迫ったものになっています。イデオロギーというゲームを考え直さなければならない時期が来ていることは明らかです。<br>しかし優れたイデオロギーを生み出せば、人類はAIを使いこなし、本当の自由を手に入れることができるはずです。<br>そしてその仕事は、AIではなく人類に与えられた仕事なのです。</p>
-<h1><span id="matome">まとめ</span></h1><p>AIは言ってみれば強力な認知ツールです。<br>人間が自動車によって驚異的な移動能力を手に入れたように、人間はAIによって驚異的な認知能力を手に入れます。<br>自動車を使いこなすには運転免許が必要です。同じように、AIを安全に、効果的に使うには、それなりの技術と知識が必要なのです。<br>そしてこれらの技術、知識は決してAIに任せることができない、ということを見てきました。<br>優れたイデオロギーを創り出し、時代に合わせてメンテナンスする。それこそがAIに替わられることがない、人間に残された役割になるはずです。</p>
-
+        
+          <p class="article-more-link">
+            <a href="/2020/02/08/AI%E3%81%AB%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%93%E3%81%A8%E3%80%81%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E3%81%93%E3%81%A8%EF%BC%88%E5%BE%8C%E7%B7%A8%EF%BC%89/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/westvirturegate/westvirturegate.github.io.git/2020/02/08/AI%E3%81%AB%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%93%E3%81%A8%E3%80%81%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E3%81%93%E3%81%A8%EF%BC%88%E5%BE%8C%E7%B7%A8%EF%BC%89/" data-id="ck6hovty30000vuwf5vh86j0u" class="article-share-link">共有</a>
+      <a data-url="https://github.com/westvirturegate/westvirturegate.github.io.git/2020/02/08/AI%E3%81%AB%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%93%E3%81%A8%E3%80%81%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E3%81%93%E3%81%A8%EF%BC%88%E5%BE%8C%E7%B7%A8%EF%BC%89/" data-id="ck6of3ojn0001owwfc67hc4ra" class="article-share-link">共有</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/" rel="tag">AI</a></li></ul>
@@ -186,56 +248,15 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <p>AIに仕事を奪われる、技術的破壊などが最近よく話題に上がります。<br>私も未熟ながら機械学習関連の研究をしている身なので、やはりいろいろと考えることがあります。<br>そこで、AIにできること、できないこと、人間に残される役割などについて書いてみました。<br>長くなってしまったので、前編と後編に分けてあります。<br>今回は前編です。<a href="https://westvirturegate.github.io/2020/02/08/AI%E3%81%AB%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%93%E3%81%A8%E3%80%81%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E3%81%93%E3%81%A8%EF%BC%88%E5%BE%8C%E7%B7%A8%EF%BC%89/" target="_blank" rel="noopener">後編はこちら</a></p>
-<div class="toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#aitutejie-ju-he-wositeiruno">AIって結局何をしているの？</a><ul>
-<li><a href="#aiha-gemuwogong-lue-surukotodexue-xi-suru">AIは「ゲームを攻略」することで学習する</a></li>
-<li><a href="#aigagong-lue-surugemunoju-ti-li">AIが攻略するゲームの具体例</a></li>
-</ul>
-</li>
-<li><a href="#ainihahe-gadekiruno">AIには何ができるの？</a><ul>
-<li><a href="#gemutositeding-shi-hua-dekirutasukutohahe-ka">ゲームとして定式化できるタスクとは何か</a></li>
-<li><a href="#rutinwakuhaainode-yi-fen-ye">ルーチンワークはAIの得意分野</a></li>
-<li><a href="#aihakurieiteibiteimobei-eru">AIはクリエイティビティも備える</a></li>
-<li><a href="#gan-qing-ren-shi-aihaateisutowosheng-mu">感情認識AIはアーティストを生む</a></li>
-<li><a href="#aihayan-jiu-zhe-nimonaru">AIは研究者にもなる</a></li>
-</ul>
-</li>
-<li><a href="#ainidekinaikotohaaruno">AIにできないことはあるの？</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-
-<h1><span id="aitutejie-ju-he-wositeiruno">AIって結局何をしているの？</span></h1><h2><span id="aiha-gemuwogong-lue-surukotodexue-xi-suru">AIは「ゲームを攻略」することで学習する</span></h2><p>一般的なAIは、与えられた「制約」のもと、「データ」を学習して「目的関数」を最大化（または最小化）するという手続きを踏んで学習していきます。<br>データはいいとして、制約と目的関数とは何でしょうか。ここでは、これらは「ゲームのルールのようなもの」と思っていただいて結構です。<br>ゲームのルールとしての制約、目的関数、データについて、サッカーというゲームを例にして具体的に見ていきます。</p>
-<p>まず、サッカーというゲームには明確な「制約」があります。手を使ってはいけない、チームは１１人まで、などがそうです。<br>そして最大化するべき「目的関数」にあたるのは得点、もっと言えばボールがゴールに入る確率です。<br>そしてこのゲームのプレイヤーは、ボールの位置や選手のポジション、そしてその結果入る得点などの「データ」をもとに学習し、行動します。<br>このように、ゲームには必ず従うべき「制約」と最大化するべき「目的関数」があり、プレイヤーには「データ」が与えられます。<br>AIの学習も、こういったゲームを攻略することに近いのです。</p>
-<h2><span id="aigagong-lue-surugemunoju-ti-li">AIが攻略するゲームの具体例</span></h2><p>わかりやすい例として、以前人間のチャンピオンを圧倒したと話題になった将棋AIを見てみましょう。<br>将棋というゲームには、各駒の動きや81マスの将棋盤という「制約」があります。<br>最大化すべき「目的関数」は相手に勝つ確率です。これらルールのもと、各駒の位置やその時の勝敗といった「データ」をもとに学習するわけです。<br>これらの制約、目的関数によるゲームが、そのまま将棋AIのゲームとなります。</p>
-<p>将棋という競技はすでに明確なゲームが与えられているので、将棋AIのゲームも簡単でした。</p>
-<p>では自動運転車のゲームはどうでしょう。<br>自動運転AIのゲームの「制約」は道路交通法、物理法則、自車の性能などになります。<br>最大化するべき「目的関数」は、運転の快適さや安全性です。これらのルールのもと、道路情報や自車の運動状態などの「データ」をもとに学習しているのです。</p>
-<p>ほかにも例えば、画像を認識するディープラーニングAIにもゲームが与えられています。<br>このゲームの「制約」は所与のネットワーク構造などです。最大化するべき「目的関数」は、答えと予測結果の誤差関数の逆数です。このルールのもと、「教師データ」を学習し、犬の画像と猫の画像を見分けることができるようになるわけです。<br>「制約」と「目的関数」が定式化できて、必要な「データ」が入手可能ならば、AIは学習することができます。<br>言い換えると、良いゲームを設定してやれば、AIは学習することができるわけです。<br>そしてうまく行けば、そのゲームにおいて人間を遥かに凌駕する得点を出すことができます。これが、「AIに仕事を奪われる」と言及される理由ですね。</p>
-<p>ではAIは一体どんなことまでできるのでしょうか。具体的に見てみましょう。</p>
-<h1><span id="ainihahe-gadekiruno">AIには何ができるの？</span></h1><h2><span id="gemutositeding-shi-hua-dekirutasukutohahe-ka">ゲームとして定式化できるタスクとは何か</span></h2><p>「AIにはどんなタスクがこなせるのか」という問いは、「どういったタスクがゲームとして定式化できるのか」という問いに言い換えられます。<br>AIの学習には、定式化されたゲームが必要だからです。<br>そこで以下では、ゲームとして定式化できるタスクは何か、を考えていきます。</p>
-<h2><span id="rutinwakuhaainode-yi-fen-ye">ルーチンワークはAIの得意分野</span></h2><p>まず真っ先に思い浮かぶのは、ルーチンワークでしょう。ルーチンワークは決められた枠の中で決められた業務を行うので、制約も目的関数も簡単に定式化できます。また、基本的に一つのAIは一つのゲーム（タスク）しかプレイできません。そのため、タスクが一つ一つ切り分けられているルーチンワークとは相性がいいのです。<br>実際、単純労働の中でもすでに工場労働などはAIに置き換えられています。これに関しては言うまでもないでしょう。</p>
-<p>ただ、このようなゲームとして定式化できるルーチンワークには、知的なものも含むのです。<br>知的なルーチンワーク、例えば医者が行う病気の診断や治療などです。<br>これらは確かに高度な知能を要しますが、ただそれだけです。ルーチンワークであることに変わりはありません。</p>
-<p>医者の診断がゲームとして定式化できることを示してみましょう。診断というゲームにおける、制約と目的関数とデータについて具体的に見ていきます。<br>まず制約です。診断というのは自由な発想でつけるものではありません。既存の疾患概念のどれかに分類しなければなりません。この疾患概念という枠組みが制約に当たります。<br>次は目的関数です。これは確定診断との誤差の逆数などになるでしょう。また、診断というのは基本的に治療方針を決めるためにあります。そのため後に続く治療の効果なども目的関数とすることができます。<br>最後はデータです。これは簡単で、得られた検査値や患者の希望や満足度、遺伝情報、そして教師データなどがデータとして使えます。<br>以上で制約、目的関数、データが定まり、診断というゲームを定式化することができました。<br>そしてこの診断というゲームにおけるすべての段階で、AIの医者は人間の医者を圧倒します。<br>データに関しては、生体センサーの高度化によって、たとえば医者の聴診器よりも優秀な検査機器が出ています。データ収集はすでに人間の仕事ではありません。また、一度に扱えるデータの量もAIは圧倒的です。<br>そして制約のもと目的関数を最大化するという計算も、当然コンピュータのほうが得意です。人間の計算能力はAIに遠く及びません。<br><a href="https://www.atpress.ne.jp/news/169145" target="_blank" rel="noopener">現に、アメリカでは糖尿病の合併症を診断するAIドクターが認可されています。</a><br>また、<a href="https://www.nikkei.com/article/DGXMZO50870540Q9A011C1FFR000/" target="_blank" rel="noopener">CTやレントゲンなどの画像をもとに診断するAIの研究も盛んに進んでいます。</a></p>
-<p>治療も同じようにゲームとして定式化できます。<br>現在の標準医療では、術式の選択や投薬スケジュールなどのタスクはほとんどがガイドラインによって標準化されています。これらは診断がついてしまえば完全にルーチンワークです。ゲームを定めて学習するまでもなく、アルゴリズムが定められているわけです。<br>手術というゲームはどうでしょう。<br>「制約」としては、患者が耐えられる負荷の上限や、使える器具や薬品などでしょう。また、診断と同じように、手術も既存の標準術式という既存の枠組みから術式を選びます。これも制約と言えるでしょう。<br>最大化するべき「目的関数」は、当然手術の成功率でしょう。これに術後の患者のQOLなどが加わります。<br>そして用いる「データ」は、術前診断に加えて、術中の視野やバイタルデータ、術後の経過や患者満足度などになるでしょう。<br>大雑把にですがこのように定式化することができます。</p>
-<p>現時点ではまだ、人による手術のほうが良い成績を収めることも多いです。しかし今までがそうだったように、誰でも執刀できるように標準化された手法が開発されて行くでしょう。最終的には機械に置き換えることも不可能ではありません。それどころか高精度のセンサーと精密なアクチュエータを持つ機械のほうが圧倒的に有利です。</p>
-<h2><span id="aihakurieiteibiteimobei-eru">AIはクリエイティビティも備える</span></h2><p>ルーチンワークはAIが最も得意とするところであることを見てきました。ではクリエイティブな職業はどうでしょうか。芸術家や技術開発研究者などのクリエイティブ職業は、AIに奪われない職業としてよく挙げられています。<br>しかし実は予想に反して、AIはクリエイティビティも備えることができるのです。<br>例えば強化学習という手法を取ったAIは、人間から教師データを受け取って学習するわけではなく、純粋にゼロから、目的関数（報酬）を最大化するように学習します。<br>そのため、人間が全く思いつかないような斬新な、クリエイティブな答えをはじき出せるのです。<br>実際、この手法で学習させた将棋AIは人間では考えられないような斬新な戦略をとるといいます。将棋の世界ではクリエイティビティは人間ではなくAIのものなのです。</p>
-<h2><span id="gan-qing-ren-shi-aihaateisutowosheng-mu">感情認識AIはアーティストを生む</span></h2><p>クリエイティブなタスクとして作曲を考えてみましょう。作曲というゲームは定式化できるでしょうか。<br>実は現在、教師データとして人間が作った曲を与え、パターン認識を行うことで作曲をするAIは多くあります。しかしこれは真にクリエイティブとは言えないでしょう。<br>これをもって「AIにはクリエイティブなタスクはできない」という認識が広まっているのだと思います。</p>
-<p>しかし、たとえば以下のようなゲームを与えたAIならばどうでしょう。<br>「制約」には西洋音階という限定された周波数や、使用楽器の音色を設定します。<br>対象となる人間の快さを「目的関数」とします。<br>「データ」としては、今までの西洋音楽の全てとその評価、曲を聞いている人間の生体データなどを与えます。生体データからパターン認識によって感情を推測する感情認識AIはすでに<a href="https://japan.zdnet.com/article/35136651/" target="_blank" rel="noopener">実用化されています。</a>これを用いることで、対象となる人間の快さを計ることができるわけです。<br>このゲームを与えたAIは、理論的には、人間よりもクリエイティブになりえます。</p>
-<p>感情認識AIによって、AIが人間の感情を読み取れるようになればどうなるでしょうか。<br>残るのは、ルールに従って快感を最大化するだけの簡単な仕事です。<br>高精度生体センサーを備えた音楽家AIは、人間の快感を最大化する音楽を生み出すことができるわけです。<br>こうなると人間に勝ち目はありません。<br>人間は高精度な生体センサーを持っていないし、目的関数の最大化という数学的な処理は当然コンピュータには遠く及びません。人間の音楽家を遥かに凌駕する天才音楽家AIの誕生です。</p>
-<h2><span id="aihayan-jiu-zhe-nimonaru">AIは研究者にもなる</span></h2><p>また、研究開発の分野においてもAIの優秀さが活用されています。<br>科学研究というのは、仮説を立て、実験を行い、得られたデータで検証するという営みです。<br><a href="https://www.ai-gakkai.or.jp/jsai2016/webprogram/2016/pdf/1104.pdf" target="_blank" rel="noopener">このうち分野によっては実験、検証はすでにAIのほうが優れており、仮説生成については研究が進んでいるところです。</a><br>そもそも科学には帰納の科学と演繹の科学の2種類があります。前者は実験科学やデータサイエンス、後者は理論科学やシミュレーション科学などです。<br>帰納の科学（実験科学とデータサイエンス）については、すでにAIが人間よりも優秀な成績を収めています。これらは一言で言うと、データを集めてその背後にあるパターン、法則を見いだすものです。これはパターン認識であり、AIが最も得意な分野の一つなのです。<br>現に、<a href="https://jp.techcrunch.com/2019/11/28/2019-11-27-this-robot-scientist-has-conducted-100000-experiments-in-a-year/" target="_blank" rel="noopener">MITが開発したAIは、人間を遥かに上回る精度とスピードで実験を繰り返しています。</a><br>（ただ、演繹の科学（理論やシミュレーション）は、まだ人間が有利です。効率的に仮説を生成し、その検証を行うことができるAIはまだ開発されていません。これについては後編で言及します。）</p>
-<p>以上より、ルーチンワーク、クリエイティブ職のどちらも、AIに任せたほうが大きな成果が期待できることがわかります。<br>AIは、あらゆる認知的営みで人間を上回り得るのです。</p>
-<h1><span id="ainidekinaikotohaaruno">AIにできないことはあるの？</span></h1><p>今回は、AIが何をしているかについてと、AIが実行可能なタスクについての記事でした。<br>次回は、AIにできないこと、人間に残された役割についての記事を書いてみようと思います。</p>
-
+        
+          <p class="article-more-link">
+            <a href="/2020/02/07/AI%E3%81%AB%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%93%E3%81%A8%E3%80%81%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E3%81%93%E3%81%A8%EF%BC%88%E5%89%8D%E7%B7%A8%EF%BC%89/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/westvirturegate/westvirturegate.github.io.git/2020/02/07/AI%E3%81%AB%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%93%E3%81%A8%E3%80%81%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E3%81%93%E3%81%A8%EF%BC%88%E5%89%8D%E7%B7%A8%EF%BC%89/" data-id="ck6gl1lpe00019nwff4x82azl" class="article-share-link">共有</a>
+      <a data-url="https://github.com/westvirturegate/westvirturegate.github.io.git/2020/02/07/AI%E3%81%AB%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%93%E3%81%A8%E3%80%81%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E3%81%93%E3%81%A8%EF%BC%88%E5%89%8D%E7%B7%A8%EF%BC%89/" data-id="ck6of3ojc0000owwfdjfk6mdj" class="article-share-link">共有</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/" rel="tag">AI</a></li></ul>
@@ -271,87 +292,15 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <p>今回は国の借金を減らすと、逆に国が滅んでしまうよ、という話をします。ちょっと過激な主張になってしまっていますが、是非最後まで読んでいただきたいです。</p>
-<div class="toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#jie-jin-hae-ikotodehanai">借金は悪いことではない</a></li>
-<li><a href="#jie-jin-hajiang-lai-nofu-wosheng-michu-su">借金は将来の富を生み出す</a></li>
-<li><a href="#jie-jin-dakewojian-temocai-wu-zhuang-kuang-haba-wo-dekinai">借金だけを見ても財務状況は把握できない</a></li>
-<li><a href="#jie-jin-wojian-rasukotohajiang-lai-nofu-wojian-rasukoto">借金を減らすことは将来の富を減らすこと</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<h2><span id="jie-jin-hae-ikotodehanai">借金は悪いことではない</span></h2><p>　“借金漬け”、”借金地獄”といった言葉からイメージするように、借金というのは聞こえがあまり良くありません。<br>借金なんてお金がなくて生きていけない人や、ギャンブル依存症の人がするものだと思っている方もいるかも知れません。<br>そこまで極端でないにしても、住宅ローンを思い浮かべて、返済のために汗水たらして働かねばならないような状況を連想する方も多いでしょう。<br>　そんな借金を、国が <strong>１０００兆円</strong> をこえる規模で抱えていると聞いたら不安になってしまいますね。<br>しかし言葉の印象の悪さに騙されてはいけません。<br>ここで借金に対する印象を変えてもらうために一つ、簡単なクイズをだしてみます。</p>
-<p><font color="red">あなたはamazon社がいくら借金しているか知っていますか？</font></p>
-<p>amazonはEコマースはもちろん、AWSなどのサービスで大きなシェアを誇る言わずと知れた超巨大企業です。そんな大企業が借金なんてしているはずがないと思うでしょうか。</p>
-<p>実はamazonは、なんと <strong><a href="https://jp.investing.com/equities/amazon-com-inc-balance-sheet" target="_blank" rel="noopener">１４兆円にもなる借金</a></strong> を抱えているのです。</p>
-<p>借金は貧乏な人のもの、と思っていた方は驚いたかも知れません。<br>しかしamazonがこれだけの巨大な負債を抱えていながら、それを指摘して騒いでいる人はいません。<br>どうしてでしょうか？</p>
-<p>amazonはこの”借金”を使って、事業拡大や技術開発などの投資を行っています。<br>　<strong>将来大きなお金を生み出すことが期待されている</strong> から、それだけの負債を抱えていても問題にならないわけです。</p>
-<p>どうでしょう、借金に対するイメージが少し変わったのではないでしょうか？</p>
-<p>一口に借金と言っても、追い詰められた人が闇金から借りるお金、きちんと審査を受けた事業が銀行から受ける融資と、いろいろあります。<br>同じ借金でも、国や企業がする借金のほとんどは、<strong>将来の富を生み出すための元手</strong> として使われているのです。<br>決してギャンブルにつぎ込んだりするためのものではありません。</p>
-<p>　しかしそうはいっても負債が富を生み出しているというのはどういうことでしょうか。具体的に見ていきましょう。<br>（一般的には財務諸表というものを見て、ある組織で負債がどのように使われているかを把握しますが、今回は割愛します。）</p>
-<h2><span id="jie-jin-hajiang-lai-nofu-wosheng-michu-su">借金は将来の富を生み出す</span></h2><p>　簡単な例で、借金が富を生み出す流れを解説してみます。<br>Aさんという人が、 <strong>負債1000万円</strong> を抱えているとします。果たしてAさんは借金地獄に陥ってるといえるでしょうか。<br>負債1000万という言葉のイメージに騙されてはいけません。<br>正解は、<strong>これだけでは情報が少なすぎて判断できない</strong>、です。</p>
-<p>ということで情報を追加すると、実はAさんはその借りた1000万で、 <strong>毎年200万の利益を生む工場</strong> を建てていました。工場建設の資金として1000万を借りて、年利5%で20年ローンを組んでいたのです。<br>つまりAさんの借金1000万は、引き換えに工場を手に入れるためのものだったのです。</p>
-<p>　ここまでくると借金だけをみて判断することが如何にナンセンスかがわかってくると思います。<br>Aさんの負債1000万だけをみて、とんでもない借金地獄であるとみなすことはどう考えても正しいとはいえないでしょう。<br>”当たり前じゃないか！”と思われるかもしれません。<br>しかし、こと国の財政に関しては、この思考過程がすっぽりと抜け落ちた議論がまかり通っているのです。</p>
-<p>もう少し詳しく、年間の収益と損失についても、数字を使ってみていきます。</p>
-<h2><span id="jie-jin-dakewojian-temocai-wu-zhuang-kuang-haba-wo-dekinai">借金だけを見ても財務状況は把握できない</span></h2><p>　Aさんは毎年200万の利益を生む工場に対して、1000万円を借りるのに年利5%で20年ローンを組んでいたのでした。<br>20年で借金を返済するので、毎年の元金返済分は1000万÷20年=50万、<br>年利5%でしたので利息分は1000万×0.05=50万<br>合計で毎年100万円、返済のために支出があります。</p>
-<p>　そしてこの工場は毎年200万の利益を生むので、差し引きで100万円、Aさんは毎年受け取ることになります。<br>借金地獄なんてとんでもない、蓋を開けてみればAさんは <strong>毎年１００万円の儲けを受け取っていた</strong> のです。</p>
-<p>しかしここで仮に年利が20%だったり、工場の生む利益が50万円だったりすると、Aさんは借金地獄に近いと判断できます。<br>つまり財務状況を判断するときには、負債に加えて資産、そして年間の収益と損失といった情報が必要なのです。<br>本来ならここまで詳しく見なければ財政難かどうかなどわかりはしないのです。</p>
-<p>資産/負債、収益/損失についてAさんの資産状況をまとめると、</p>
-<table>
-<thead>
-<tr>
-<th>資産</th>
-<th>負債</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1000万円相当の工場</td>
-<td>1000万円相当の借金</td>
-</tr>
-</tbody></table>
-<hr>
-<table>
-<thead>
-<tr>
-<th>収益</th>
-<th>損失</th>
-<th>純利益</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>200万</td>
-<td>100万</td>
-<td>100万</td>
-</tr>
-</tbody></table>
-<p>となります。(維持費や減価償却費などは単純化のため省いています。)</p>
-<p>　ここまで見れば誰もAさんが1000万の負債を抱えてるといって騒いだりはしませんよね。<br>資産として　<strong>1000万相当の工場</strong> を保有しているのですから。<br>そして収益の観点からみても、Aさんは毎年100万返済しながらも、一方では <strong>100万の純利益</strong> を得ているのです。</p>
-<h2><span id="jie-jin-wojian-rasukotohajiang-lai-nofu-wojian-rasukoto">借金を減らすことは将来の富を減らすこと</span></h2><p>　このように財務状況を把握するには、資産/負債だけでは情報は不十分であり、必ず収益/損失の観点も必要になります。<br>“負債(借金)の絶対量”だけを見ることに意味はないのです。</p>
-<p>　ところが国の借金の話になると、負債ばかりが注目を浴び、収益/損失はおろか資産のことも話題に上がることがないように思います。<br>例え1000兆円の負債があったとしても、それ相応の資産があり、総利回りが5パーセントあれば将来の国民の負担になることはありません。<br>むしろ <strong>50兆円の歳入</strong> を生む財源となるのです。<br> <strong>負債というのは資産を生み出すもととなったお金の出処のことです。</strong> そしてその資産が、将来の富を生み出すことになるのです。</p>
-<p> 　ここでAさんを国に、工場を公教育や医療などの社会インフラに置き換えてみましょう。国の借金を減らすべき、という主張の恐ろしさが分かるはずです。</p>
-<p> 社会インフラは国民の生活水準を上げるだけでなく、 <strong>将来の税収も生む最も効率の良い投資であることが証明されています。</strong><br>より高い教育を受けた国民は高度な技能をもって付加価値の高い産業に従事し、多くの所得税を収めます。<br>より良い医療、公衆衛生は死や病気による離職を減らし、社会全体の経済的損失を防ぎます。<br>そしてなにより、これらは国民の幸福度を上げることに貢献しています。<br>国は借金をすることでこれらの社会インフラに <strong>投資</strong> をしているのです。</p>
-<p>　もし、借金返済・健全財政の名目でこれらの投資を縮小してしまったらどうなるでしょうか。<br>高度な技能を持った国民は減り、 <strong>国民が収める所得税は少なく</strong> なります。<br>医療崩壊が起こってしまい、十分な医療が受けられずに病気で <strong>思うように働けなくなる人が増え</strong> ます。</p>
-<p><font color="red">その結果税収は減り、より一層健全財政は遠ざかり、さらに投資を縮小する、という <strong>悪循環</strong> に陥るのです。</font></p>
-<p>　借金を減らしてしまうと、将来の国民の負担を減らすどころか、国の収入が減ることで借金返済が遠ざかる上に国民の幸福を奪うことになるのです。<br>そして行き着く先は、十分な技能をもつ労働者はおらず、一部の富裕層のみしか医療サービスを受けられない国です。<br>滅亡まっしぐらだと思いませんか。</p>
-<p>　私はこれを、 <strong>国の借金を減らすと国が滅ぶ</strong>、と表現したわけです。<br>そして恐ろしいことに今現在、日本はこの滅亡ルートを突き進んでいるのです。</p>
-<p>　投資に回すべきお金を借金返済に回した結果税収が減り、さらに借金が増えるという悪循環を断ち切るには、 <strong>国は借金をして投資に回さなければならないのです。</strong><br>税収を増やすためにも、国民の幸福を実現するためにも。</p>
-<p>　とはいうものの社会インフラによる投資効果は短期的にはわからない上、単純な利回りを計算することもできません。<br>このためどういった公共事業が有益なのか判断するのが難しく、これが必要以上に国の借金を怖がらせる原因の一つにもなっていると思われます。</p>
-<p>そこで自己ファイナンスできる財政政策(財政政策・財政支出とは政府による投資などのこと)、というのが出てくるわけです。</p>
-<p>次回はその当たりの話を、どこに投資するべきか、なども含めて書いてみたいと思います。</p>
-<p>おしまい。</p>
-<blockquote>
-<p>参考文献：<br><a href="https://www.amazon.co.jp/%E3%80%8C%E8%BF%BD%E3%82%8F%E3%82%8C%E3%82%8B%E5%9B%BD%E3%80%8D%E3%81%AE%E7%B5%8C%E6%B8%88%E5%AD%A6-%E3%83%9D%E3%82%B9%E3%83%88%E3%83%BB%E3%82%B0%E3%83%AD%E3%83%BC%E3%83%90%E3%83%AA%E3%82%BA%E3%83%A0%E3%81%AE%E5%87%A6%E6%96%B9%E7%AE%8B-%E3%83%AA%E3%83%81%E3%83%A3%E3%83%BC%E3%83%89%E3%83%BB%E3%82%AF%E3%83%BC/dp/4492444513/ref=sr_1_1?adgrpid=71314764234&gclid=CjwKCAiAjMHwBRAVEiwAzdLWGH_LwjP1zcjLYZ1ZrkyjOMOu-WWJk3TY83S6qTkSFsk5WQpaEVJ8shoCYcoQAvD_BwE&hvadid=340891249871&hvdev=c&hvlocphy=1009461&hvnetw=g&hvpos=1t1&hvqmt=e&hvrand=16358762526149835168&hvtargid=aud-759377471933%3Akwd-729403601694&hydadcr=21805_10989638&jp-ad-ap=0&keywords=%E8%BF%BD%E3%82%8F%E3%82%8C%E3%82%8B%E5%9B%BD%E3%81%AE%E7%B5%8C%E6%B8%88%E5%AD%A6&qid=1578207106&sr=8-1" target="_blank" rel="noopener">追われる国の経済学</a><br><a href="https://www.amazon.co.jp/%E5%AF%8C%E5%9B%BD%E3%81%A8%E5%BC%B7%E5%85%B5-%E4%B8%AD%E9%87%8E-%E5%89%9B%E5%BF%97/dp/4492444386/ref=sr_1_1?adgrpid=66185920500&gclid=CjwKCAiAjMHwBRAVEiwAzdLWGE_EvPg26yZOMivcIVmWCbLP3MmqOFbdMj296Z_BCRkQr1NbLSQniBoCKMIQAvD_BwE&hvadid=338548347972&hvdev=c&hvlocphy=1009461&hvnetw=g&hvpos=1t1&hvqmt=e&hvrand=7530677682994898374&hvtargid=aud-759377471933%3Akwd-334163736224&hydadcr=16035_11170806&jp-ad-ap=0&keywords=%E5%AF%8C%E5%9B%BD%E3%81%A8%E5%BC%B7%E5%85%B5&qid=1578207194&s=books&sr=1-1" target="_blank" rel="noopener">富国と強兵</a></p>
-</blockquote>
-
+        
+          <p class="article-more-link">
+            <a href="/2020/01/05/%E5%9B%BD%E3%81%AE%E5%80%9F%E9%87%91%E3%82%92%E6%B8%9B%E3%82%89%E3%81%99%E3%81%A8%E5%9B%BD%E3%81%8C%E6%BB%85%E3%81%B6%E3%81%A8%E3%81%84%E3%81%86%E8%A9%B1/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/westvirturegate/westvirturegate.github.io.git/2020/01/05/%E5%9B%BD%E3%81%AE%E5%80%9F%E9%87%91%E3%82%92%E6%B8%9B%E3%82%89%E3%81%99%E3%81%A8%E5%9B%BD%E3%81%8C%E6%BB%85%E3%81%B6%E3%81%A8%E3%81%84%E3%81%86%E8%A9%B1/" data-id="ck6brxgvi000080wf13zmhvvi" class="article-share-link">共有</a>
+      <a data-url="https://github.com/westvirturegate/westvirturegate.github.io.git/2020/01/05/%E5%9B%BD%E3%81%AE%E5%80%9F%E9%87%91%E3%82%92%E6%B8%9B%E3%82%89%E3%81%99%E3%81%A8%E5%9B%BD%E3%81%8C%E6%BB%85%E3%81%B6%E3%81%A8%E3%81%84%E3%81%86%E8%A9%B1/" data-id="ck6of3ok80005owwf18p09oxi" class="article-share-link">共有</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%B5%8C%E6%B8%88%E5%AD%A6/" rel="tag">経済学</a></li></ul>
@@ -391,7 +340,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/westvirturegate/westvirturegate.github.io.git/2020/01/04/test/" data-id="ck6brxgvt000180wf8grt63pd" class="article-share-link">共有</a>
+      <a data-url="https://github.com/westvirturegate/westvirturegate.github.io.git/2020/01/04/test/" data-id="ck6of3ok10004owwf3qrz0gt6" class="article-share-link">共有</a>
       
       
     </footer>
@@ -409,13 +358,20 @@ ga('send', 'pageview');
           <aside id="sidebar">
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">カテゴリ</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%83%87%E3%83%BC%E3%82%BF%E5%88%86%E6%9E%90/">データ分析</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%95%E8%B3%87/">投資</a></li></ul>
+    </div>
+  </div>
+
 
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">タグ</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B5%8C%E6%B8%88%E5%AD%A6/" rel="tag">経済学</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%83%87%E3%83%BC%E3%82%BF%E5%88%86%E6%9E%90/" rel="tag">データ分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%95%E8%B3%87/" rel="tag">投資</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B5%8C%E6%B8%88%E5%AD%A6/" rel="tag">経済学</a></li></ul>
     </div>
   </div>
 
@@ -425,7 +381,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">タグクラウド</h3>
     <div class="widget tagcloud">
-      <a href="/tags/AI/" style="font-size: 20px;">AI</a> <a href="/tags/%E7%B5%8C%E6%B8%88%E5%AD%A6/" style="font-size: 10px;">経済学</a>
+      <a href="/tags/AI/" style="font-size: 20px;">AI</a> <a href="/tags/%E3%83%87%E3%83%BC%E3%82%BF%E5%88%86%E6%9E%90/" style="font-size: 10px;">データ分析</a> <a href="/tags/%E6%8A%95%E8%B3%87/" style="font-size: 10px;">投資</a> <a href="/tags/%E7%B5%8C%E6%B8%88%E5%AD%A6/" style="font-size: 10px;">経済学</a>
     </div>
   </div>
 
@@ -445,6 +401,10 @@ ga('send', 'pageview');
     <h3 class="widget-title">最近の投稿</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2020/02/15/Ethereum%E3%81%AE%E7%90%86%E8%AB%96%E4%BE%A1%E6%A0%BC/">Ethereum価格をメトカーフの法則を使って分析してみた</a>
+          </li>
         
           <li>
             <a href="/2020/02/08/AI%E3%81%AB%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%93%E3%81%A8%E3%80%81%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E3%81%93%E3%81%A8%EF%BC%88%E5%BE%8C%E7%B7%A8%EF%BC%89/">AIにできること、できないこと（後編）</a>

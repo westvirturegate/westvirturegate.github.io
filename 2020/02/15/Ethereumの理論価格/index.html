@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-158076145-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Ethereum価格をメトカーフの法則を使って分析してみた | こめす</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="イーサリアムの価格をモデリングしてみる メトカーフの法則 イーサリアムはネットワーク モデル式   実際のデータで試してみる モデルの検証   今回の上昇相場の考察 理論価格との比較   今後の展開 おまけ       年明けからイーサ価格が上昇を続けています。どうやら仮想通貨全般が上昇相場にあるようです。 そんな仮想通貨の中でも、私はイーサリアムを激推ししています。 なんかプチバブルが">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ethereum価格をメトカーフの法則を使って分析してみた">
+<meta property="og:url" content="https://github.com/westvirturegate/westvirturegate.github.io.git/2020/02/15/Ethereum%E3%81%AE%E7%90%86%E8%AB%96%E4%BE%A1%E6%A0%BC/index.html">
+<meta property="og:site_name" content="こめす">
+<meta property="og:description" content="イーサリアムの価格をモデリングしてみる メトカーフの法則 イーサリアムはネットワーク モデル式   実際のデータで試してみる モデルの検証   今回の上昇相場の考察 理論価格との比較   今後の展開 おまけ       年明けからイーサ価格が上昇を続けています。どうやら仮想通貨全般が上昇相場にあるようです。 そんな仮想通貨の中でも、私はイーサリアムを激推ししています。 なんかプチバブルが">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://github.com/westvirturegate/westvirturegate.github.io.git/2020/02/15/Ethereum%E3%81%AE%E7%90%86%E8%AB%96%E4%BE%A1%E6%A0%BC/img/ETH/ETH.png">
+<meta property="article:published_time" content="2020-02-15T13:32:27.000Z">
+<meta property="article:modified_time" content="2020-02-16T02:42:14.306Z">
+<meta property="article:author" content="westvirturegate">
+<meta property="article:tag" content="データ分析">
+<meta property="article:tag" content="投資">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/westvirturegate/westvirturegate.github.io.git/2020/02/15/Ethereum%E3%81%AE%E7%90%86%E8%AB%96%E4%BE%A1%E6%A0%BC/img/ETH/ETH.png">
+<meta name="twitter:creator" content="@komesunchu">
+  <meta name="description" content="イーサリアムの価格をモデリングしてみる メトカーフの法則 イーサリアムはネットワーク モデル式   実際のデータで試してみる モデルの検証   今回の上昇相場の考察 理論価格との比較   今後の展開 おまけ       年明けからイーサ価格が上昇を続けています。どうやら仮想通貨全般が上昇相場にあるようです。 そんな仮想通貨の中でも、私はイーサリアムを激推ししています。 なんかプチバブルが">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ethereum価格をメトカーフの法則を使って分析してみた">
+<meta property="og:url" content="https://github.com/westvirturegate/westvirturegate.github.io.git/2020/02/15/Ethereum%E3%81%AE%E7%90%86%E8%AB%96%E4%BE%A1%E6%A0%BC/index.html">
+<meta property="og:site_name" content="こめす">
+<meta property="og:description" content="イーサリアムの価格をモデリングしてみる メトカーフの法則 イーサリアムはネットワーク モデル式   実際のデータで試してみる モデルの検証   今回の上昇相場の考察 理論価格との比較   今後の展開 おまけ       年明けからイーサ価格が上昇を続けています。どうやら仮想通貨全般が上昇相場にあるようです。 そんな仮想通貨の中でも、私はイーサリアムを激推ししています。 なんかプチバブルが">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://github.com/westvirturegate/westvirturegate.github.io.git/2020/02/15/Ethereum%E3%81%AE%E7%90%86%E8%AB%96%E4%BE%A1%E6%A0%BC/themes/komesu.jpeg">
+<meta property="article:published_time" content="2020-02-15T13:32:27.000Z">
+<meta property="article:modified_time" content="2020-02-16T02:42:14.306Z">
+<meta property="article:author" content="westvirturegate">
+<meta property="article:tag" content="データ分析">
+<meta property="article:tag" content="投資">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/westvirturegate/westvirturegate.github.io.git/2020/02/15/Ethereum%E3%81%AE%E7%90%86%E8%AB%96%E4%BE%A1%E6%A0%BC/themes/komesu.jpeg">
+  
+    <link rel="alternate" href="/atom.xml" title="こめす" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">こめす</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">勉強したこと</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSSフィード"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="検索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://github.com/westvirturegate/westvirturegate.github.io.git"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Ethereumの理論価格" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/15/Ethereum%E3%81%AE%E7%90%86%E8%AB%96%E4%BE%A1%E6%A0%BC/" class="article-date">
+  <time datetime="2020-02-15T13:32:27.000Z" itemprop="datePublished">2020-02-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E3%83%87%E3%83%BC%E3%82%BF%E5%88%86%E6%9E%90/">データ分析</a>►<a class="article-category-link" href="/categories/%E6%8A%95%E8%B3%87/">投資</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+<div class="article-gallery">
+  <div class="article-gallery-photos">
+    
+      <a class="article-gallery-img fancybox" href="/img/ETH/ETH.png" rel="gallery_ck6of3ojv0003owwf1fc15wd8">
+        <img src="/img/ETH/ETH.png" itemprop="image">
+      </a>
+    
+  </div>
+</div>
+
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Ethereum価格をメトカーフの法則を使って分析してみた
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div class="toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#isariamunojia-ge-womoderingusitemiru">イーサリアムの価格をモデリングしてみる</a><ul>
+<li><a href="#metokahunofa-ze">メトカーフの法則</a></li>
+<li><a href="#isariamuhanetutowaku">イーサリアムはネットワーク</a></li>
+<li><a href="#moderushi">モデル式</a></li>
+</ul>
+</li>
+<li><a href="#shi-ji-nodetadeshi-sitemiru">実際のデータで試してみる</a><ul>
+<li><a href="#moderunojian-zheng">モデルの検証</a></li>
+</ul>
+</li>
+<li><a href="#jin-hui-noshang-sheng-xiang-chang-nokao-cha">今回の上昇相場の考察</a><ul>
+<li><a href="#li-lun-jia-ge-tonobi-jiao">理論価格との比較</a></li>
+</ul>
+</li>
+<li><a href="#jin-hou-nozhan-kai">今後の展開</a></li>
+<li><a href="#omake">おまけ</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+
+<p>年明けからイーサ価格が上昇を続けています。どうやら仮想通貨全般が上昇相場にあるようです。</p>
+<p>そんな仮想通貨の中でも、私はイーサリアムを激推ししています。</p>
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">なんかプチバブルが来て前から激推ししてたイーサリアムが倍増してて嬉しい。<br>仮想通貨の中でもイーサリアムにはこういうスマートコントラクトの需要があるから強いと思ってる。<br>これがバブルなのか確かめるために値段とアクティブアカウント数のデータ集めてるなう。 <a href="https://t.co/X8iTqm0nOM" target="_blank" rel="noopener">https://t.co/X8iTqm0nOM</a></p>&mdash; こめす (@komesunchu) <a href="https://twitter.com/komesunchu/status/1227857307570040832?ref_src=twsrc%5Etfw" target="_blank" rel="noopener">February 13, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>これを機にイーサリアムが流行ってくれると良いな、などと思っているところです。</p>
+<p>そこで今回は、イーサ価格の変動の背景にある現象を探るべく、簡単なデータ分析をしてみました。<br>そんなに高度なデータ分析はしていませんが、なかなかきれいなグラフが得られたので是非見ていってください。</p>
+<a id="more"></a>
+
+<h1><span id="isariamunojia-ge-womoderingusitemiru">イーサリアムの価格をモデリングしてみる</span></h1><h2><span id="metokahunofa-ze">メトカーフの法則</span></h2><p>イーサ価格を理解するための理論として、ネットワークの価値に関する理論であるメトカーフの法則を採用してみます。<br>メトカーフの法則は、「ネットワーク通信の価値は、接続されているシステムのユーザ数の二乗（n2）に比例する」というものです。</p>
+<img src="/2020/02/15/Ethereum%E3%81%AE%E7%90%86%E8%AB%96%E4%BE%A1%E6%A0%BC//メトカフ.png" width="400px" height="200px" align="center">
+<br style="clear:left;">
+
+
+
+<p>この法則に基づいてモデリングしていきます。</p>
+<h2><span id="isariamuhanetutowaku">イーサリアムはネットワーク</span></h2><p>ところで、なぜイーサリアムの価格モデリングにネットワークの理論を用いるのでしょうか。</p>
+<p>通貨の価値はネットワークの参加者数に左右されます。<br>一人しか使っていない通貨には価値がありません。<br>品物と交換してくれる相手がいないからです。<br>二人が使っている通貨は、その二人の間でだけ価値をもちます。<br>この人数が増えていくと、この通貨の価値、利便性はどんどんあがっていくのです。<br>これが通貨の価値にネットワークの理論を用いる理由です。</p>
+<p>また、イーサリアムというのは「ブロックチェーンネットワーク」というネットワークシステムの一種です。<br>このネットワークでは、参加者全員が改ざん不可能性を維持するために寄与しています。<br>この改ざん不可能性もネットワーク参加者数が増えるほど高まります。</p>
+<p>さらに、イーサリアムにはスマートコントラクトという機能があります。改ざん不可能性によって可能になった仕組みです。<br>これにより単なる通貨以上の価値が付加されています。</p>
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">仮想通貨の中でもイーサリアムはスマートコントラクトっていう実需があるから無価値になることはない、て考えてる<br>スマートコントラクトによって契約にかかるコストが削減できることのメリットは計り知れないし<br>実現可能性に関してもIKEAがもう実現してしまってるのはでかい<a href="https://t.co/zQEfdSjnOB" target="_blank" rel="noopener">https://t.co/zQEfdSjnOB</a></p>&mdash; こめす (@komesunchu) <a href="https://twitter.com/komesunchu/status/1202568855089897473?ref_src=twsrc%5Etfw" target="_blank" rel="noopener">December 5, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+<p>イーサリアムネットワーク参加者が増えれば増えるほど、スマートコントラクトの利便性は上昇します。<br>これは私がイーサリアムを激推ししている理由でもあります。</p>
+<p>イーサリアムの価値は、イーサリアムネットワークの価値であると言えるわけです。</p>
+<h2><span id="moderushi">モデル式</span></h2><p>イーサリアムにネットワークの理論が使えるということがわかったところで、イーサリアム価格のモデリングに入ります。</p>
+<p>メトカーフの法則によると、ネットワークの価値は以下の数式で表現できるのでした。</p>
+<img src="/2020/02/15/Ethereum%E3%81%AE%E7%90%86%E8%AB%96%E4%BE%A1%E6%A0%BC//メトカフ.png" width="50%" height="50%" align="center">
+<br style="clear:center;">
+
+
+
+<p>ここで、２つの仮定を置きます。<br>１，イーサリアム価格はイーサリアムネットワークの価値に比例する。<br>２，イーサリアムネットワークユーザ数はアクティブアカウント数に比例する。<br>すると、イーサリアムの価格は以下のように表現できます。</p>
+<img src="/2020/02/15/Ethereum%E3%81%AE%E7%90%86%E8%AB%96%E4%BE%A1%E6%A0%BC//イーサメトカフ.png" width="40%" height="50%" align="center">
+<br style="clear:center;">
+
+
+<p>このままでは指数関数が入っていて難しいです。<br>そこで、対数を取ることで肩の指数をおろします<br>すると以下のようなモデルが出来上がります。</p>
+<img src="/2020/02/15/Ethereum%E3%81%AE%E7%90%86%E8%AB%96%E4%BE%A1%E6%A0%BC//イーサ価格.png" width="60%" height="50%" align="center">
+<br style="clear:left;">
+
+
+<p>線形単回帰の簡単なモデルになりました。</p>
+<h1><span id="shi-ji-nodetadeshi-sitemiru">実際のデータで試してみる</span></h1><h2><span id="moderunojian-zheng">モデルの検証</span></h2><p>実際に、このモデルが現実を説明するのかを見ていきましょう。</p>
+<p>データは<a href="https://coinmetrics.io/data-downloads/" target="_blank" rel="noopener">こちら</a>から頂きました。</p>
+<p>まずは、各時点におけるイーサ価格とアクティブアカウント数を、両対数グラフへプロットしてみます。</p>
+<p>黒の線が回帰直線で、時系列にそって、赤から青の順で色分けしてあります</p>
+<img src="/2020/02/15/Ethereum%E3%81%AE%E7%90%86%E8%AB%96%E4%BE%A1%E6%A0%BC/%E3%82%A4%E3%83%BC%E3%82%B5.png" class title="alt">
+
+
+<p>ほぼ直線ですね。かなり比例に近い関係になっていることがわかります。<br>謎の外れ値以外はよく近似できています。この外れ値の考察もいずれはしてみたいですね。</p>
+<p>ともあれ、メトカーフの法則にもとづいたモデリングでうまく説明できそうです。</p>
+<h1><span id="jin-hui-noshang-sheng-xiang-chang-nokao-cha">今回の上昇相場の考察</span></h1><h2><span id="li-lun-jia-ge-tonobi-jiao">理論価格との比較</span></h2><p>この回帰直線上の点が（アクティブアカウント数から予測される）理論的な価格になります。</p>
+<p>この直線より上にあれば、理論値よりも高い価格がついている、つまり割高な状態。<br>この直線より下にあれば、理論値よりも低い価格がついている、割安な状態といえます。<br>このグラフ上の位置と時期について示しました。</p>
+<img src="/2020/02/15/Ethereum%E3%81%AE%E7%90%86%E8%AB%96%E4%BE%A1%E6%A0%BC/%E3%82%A4%E3%83%BC%E3%82%B5%E7%9B%B8%E5%A0%B4.png" class title="alt">
+
+
+<p>黒い丸でかこった部分が、２０１８年のはじめから中頃まで続いた上昇相場です。<br>この部分は回帰直線よりも上にあります。<br>ですので理論上、この時期はネットワークの価値を大きく超えてイーサ価格が上昇していた、という判断になります。</p>
+<p>それに対して今回の上昇相場（青で囲った部分）は、回帰直線の下側です。<br>理論上はまだ割安と言えそうです。<br>ネットワーク参加者数の増加に、価値上昇が追いついていないという見方もできるかもしれません。</p>
+<h1><span id="jin-hou-nozhan-kai">今後の展開</span></h1><p>今回はETH価格とアクティブアカウント数との間に相関があることを見てみました。<br>このモデリングによれば、現在のイーサ価格は決して割高ではなさそうだということが言えます。</p>
+<p>しかし今回の分析では因果関係が明らかになっていません。<br>イーサ価格とアクティブアカウント数の相関には２つのメカニズムが考えられます。</p>
+<p>・ネットワーク参加者数の増加→価値の上昇→価格の上昇<br>・（外的要因による）価格の上昇→ネットワーク参加者数の上昇→価値の上昇</p>
+<p>つまり、ネットワーク参加者数の増加が原因で、価格の上昇が結果であるパターンと、<br>価格の上昇が引き金になって取引が活発化し、結果的にネットワーク参加者数が増加したパターンの２種類が考えられるわけです。<br>（個人的には、これらの双方向的なフィードバックが働いているのではないかと考えています。）</p>
+<p>この因果関係がわかれば、投資の判断にも活かせる貴重な情報になると思われます。</p>
+<h1><span id="omake">おまけ</span></h1><p>ついでに分布も出してみましたら、教科書にのっていそうなレベルできれいなグラフが得られました。</p>
+<img src="/2020/02/15/Ethereum%E3%81%AE%E7%90%86%E8%AB%96%E4%BE%A1%E6%A0%BC/ETH.png" class title="alt">
+<p>きれいな対数正規分布を３つ重ねた形になっています。<br>ここから、イーサ価格とアクティブアカウント数には３つのトレンドがあることが読み取れます。<br>このあたりの分析もやっていきたいですね。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/westvirturegate/westvirturegate.github.io.git/2020/02/15/Ethereum%E3%81%AE%E7%90%86%E8%AB%96%E4%BE%A1%E6%A0%BC/" data-id="ck6of3ojv0003owwf1fc15wd8" class="article-share-link">共有</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E3%83%87%E3%83%BC%E3%82%BF%E5%88%86%E6%9E%90/" rel="tag">データ分析</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%95%E8%B3%87/" rel="tag">投資</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/02/08/AI%E3%81%AB%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%93%E3%81%A8%E3%80%81%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E3%81%93%E3%81%A8%EF%BC%88%E5%BE%8C%E7%B7%A8%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">AIにできること、できないこと（後編）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">カテゴリ</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%83%87%E3%83%BC%E3%82%BF%E5%88%86%E6%9E%90/">データ分析</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%95%E8%B3%87/">投資</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%83%87%E3%83%BC%E3%82%BF%E5%88%86%E6%9E%90/" rel="tag">データ分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%95%E8%B3%87/" rel="tag">投資</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B5%8C%E6%B8%88%E5%AD%A6/" rel="tag">経済学</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AI/" style="font-size: 20px;">AI</a> <a href="/tags/%E3%83%87%E3%83%BC%E3%82%BF%E5%88%86%E6%9E%90/" style="font-size: 10px;">データ分析</a> <a href="/tags/%E6%8A%95%E8%B3%87/" style="font-size: 10px;">投資</a> <a href="/tags/%E7%B5%8C%E6%B8%88%E5%AD%A6/" style="font-size: 10px;">経済学</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/02/15/Ethereum%E3%81%AE%E7%90%86%E8%AB%96%E4%BE%A1%E6%A0%BC/">Ethereum価格をメトカーフの法則を使って分析してみた</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/08/AI%E3%81%AB%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%93%E3%81%A8%E3%80%81%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E3%81%93%E3%81%A8%EF%BC%88%E5%BE%8C%E7%B7%A8%EF%BC%89/">AIにできること、できないこと（後編）</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/07/AI%E3%81%AB%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%93%E3%81%A8%E3%80%81%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E3%81%93%E3%81%A8%EF%BC%88%E5%89%8D%E7%B7%A8%EF%BC%89/">AIにできること、できないこと（前編）</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/05/%E5%9B%BD%E3%81%AE%E5%80%9F%E9%87%91%E3%82%92%E6%B8%9B%E3%82%89%E3%81%99%E3%81%A8%E5%9B%BD%E3%81%8C%E6%BB%85%E3%81%B6%E3%81%A8%E3%81%84%E3%81%86%E8%A9%B1/">国の借金を減らすと国が滅ぶという話</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/04/test/">test</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 westvirturegate<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
