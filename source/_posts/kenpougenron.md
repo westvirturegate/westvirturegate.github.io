@@ -12,7 +12,7 @@ photos:
 <meta property="og:image" content="{% post_path kenpougenron %}/kenpougenron.jpg">
 
 <a class="fancybox" href="https://www.amazon.co.jp/dp/4797671459/ref=cm_sw_em_r_mt_dp_U_UA1ZEbEZ6CWQ5" target="_blank">
-<img src="{% post_path kenpougenron %}/kenpougenron.jpg" width="400px"  height="200px" align="center">
+<img src="{% post_path kenpougenron %}/kenpougenron.jpg" width="250px"  height="150px" align="center">
 </a>
 
 今回は小室直樹著[『日本人のための憲法原論』]( https://www.amazon.co.jp/dp/4797671459/ref=cm_sw_em_r_mt_dp_U_UA1ZEbEZ6CWQ5)の書評を投稿してみます。

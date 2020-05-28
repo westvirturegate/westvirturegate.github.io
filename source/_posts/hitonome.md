@@ -15,7 +15,7 @@ photos:
 
 
 <a class="fancybox" href="https://www.amazon.co.jp/dp/4150505551/ref=cm_sw_em_r_mt_dp_U_171ZEbEN3T9DH" target="_blank">
-<img src="{% post_path hitonome %}/hitonome.jpg" width="400px"  height="200px" align="center">
+<img src="{% post_path hitonome %}/hitonome.jpg" width="250px"  height="100px" align="center">
 </a>
 
 マーク・チャンギージー著[『ヒトの目、驚異の進化』](https://www.amazon.co.jp/dp/4150505551/ref=cm_sw_em_r_mt_dp_U_171ZEbEN3T9DH)の書評記事です。
