@@ -12,16 +12,22 @@ categories:
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="［データ分析］株・金利・金相場・仮想通貨の相関図［毎日更新］" />
-<meta name="twitter:description" content="stock" />
+<meta name="twitter:description" content="過去約１２０日間の、株・仮想通貨・金相場・金利の相関を表した散布図行列です。画像は毎日自動で更新され、常に一日前のデータを反映しています。これ一枚で、●対角線上には折れ線グラフ●下三角部分には価格の散布図（赤いほど日付が古く、青いほど日付が若い）●上三角部分には価格変動の相関係数の時間変化と、相関係数の平均値が一望できます。" />
 <meta name="twitter:image" content="https://github.com/westvirturegate/westvirturegate.github.io/blob/source/source/_posts/stockplot/today.png?raw=true" />
 
 <img src="{% post_path stockplot %}/today.png" width="100%" align="center">
 <br style="clear:left;">
+
 過去約１２０日間の、株・仮想通貨・金相場・金利の相関を表した散布図行列です。
+画像は毎日自動で更新され、常に一日前のデータを反映しています。
+
 これ一枚で、
-対角線上には折れ線グラフ
-下三角部分には価格の散布図（赤いほど日付が古く、青いほど日付が若い）
-上三角部分には価格変動の相関係数の時間変化と、相関係数の平均値
+●対角線上には折れ線グラフ
+
+●下三角部分には価格の散布図（赤いほど日付が古く、青いほど日付が若い）
+
+●上三角部分には価格変動の相関係数の時間変化と、相関係数の平均値
+
 が一望できます。
 <!-- more -->
 <!-- toc -->
