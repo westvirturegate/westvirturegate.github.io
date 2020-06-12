@@ -7,7 +7,7 @@ categories:
 tags:
 - [社会学]
 - [書評]
-photos: https://github.com/westvirturegate/westvirturegate.github.io/blob/source/source/_posts/kenpougenron/kenpougenron.jpg?raw=true　
+photos: 
 ---
 <meta property="og:image" content="{% post_path kenpougenron %}/kenpougenron.jpg">
 
