@@ -12,14 +12,7 @@ photos: https://github.com/westvirturegate/westvirturegate.github.io/blob/master
 <meta property="og:image" content="{% post_path Ethereumnorironkakaku %}/ETH.png">
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="［データ分析］Ethereum価格をメトカーフの法則を使って分析してみた" />
-<meta name="twitter:description" content="年明けからどうやら仮想通貨全般が上昇相場にあるようです。
-
-そんな仮想通貨の中でも、私はイーサリアムを激推ししています。
-
-これを機にイーサリアムが流行ってくれると良いな、などと思っているところです。
-
-そこで今回は、イーサ価格の変動の背景にある現象を探るべく、簡単なデータ分析をしてみました。
-そんなに高度なデータ分析はしていませんが、なかなかきれいなグラフが得られたので是非見ていってください。" />
+<meta name="twitter:description" content="年明けからどうやら仮想通貨全般が上昇相場にあるようです。そんな仮想通貨の中でも、私はイーサリアムを激推ししています。これを機にイーサリアムが流行ってくれると良いな、などと思っているところです。そこで今回は、イーサ価格の変動の背景にある現象を探るべく、簡単なデータ分析をしてみました。そんなに高度なデータ分析はしていませんが、なかなかきれいなグラフが得られたので是非見ていってください。" />
 <meta name="twitter:image" content="https://github.com/westvirturegate/westvirturegate.github.io/blob/master/img/ETH/ETH.png?raw=true" />
 
 年明けからどうやら仮想通貨全般が上昇相場にあるようです。
