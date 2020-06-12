@@ -1,5 +1,5 @@
 ---
-title: 『日本人のための憲法原論』小室 直樹
+title: ［書評］『日本人のための憲法原論』小室 直樹
 date: 2020-03-19 14:48:06
 categories:
 - [書評]
@@ -7,9 +7,15 @@ categories:
 tags:
 - [社会学]
 - [書評]
-photos: 
+photos:
 ---
 <meta property="og:image" content="{% post_path kenpougenron %}/kenpougenron.jpg">
+<meta property="og:image" content="{% post_path stockplot%}/today.png">
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="日本人のための憲法原論" />
+<meta name="twitter:description" content="今回は小室直樹著『日本人のための憲法原論』の書評を投稿してみます。著者の小室直樹さんは著名な社会学者で、京大理学部を卒業した後に東大で法学博士を取得、という異色の経歴をもった方です。著者の経歴は申し分ないわけですが、もちろん内容もすごくおすすめです。" />
+<meta name="twitter:image" content="https://github.com/westvirturegate/westvirturegate.github.io/blob/source/source/_posts/kenpougenron/kenpougenron.jpg?raw=true" />
 
 <a class="fancybox" href="https://www.amazon.co.jp/dp/4797671459/ref=cm_sw_em_r_mt_dp_U_UA1ZEbEZ6CWQ5" target="_blank">
 <img src="{% post_path kenpougenron %}/kenpougenron.jpg" width="250px"  height="150px" align="center">

@@ -7,10 +7,13 @@ tags:
 categories:
 - [投資]
 - [データ分析]
-photos: https://github.com/westvirturegate/westvirturegate.github.io/blob/source/source/_posts/stockplot/today.png
 ---
 <meta property="og:image" content="{% post_path stockplot%}/today.png">
 
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="stockplot" />
+<meta name="twitter:description" content="stock" />
+<meta name="twitter:image" content="https://github.com/westvirturegate/westvirturegate.github.io/blob/source/source/_posts/stockplot/today.png?raw=true" />
 
 <img src="{% post_path stockplot %}/today.png" width="400px"  height="200px" align="center">
 <br style="clear:left;">

@@ -1,5 +1,5 @@
 ---
-title: 『ヒトの目、驚異の進化』　マーク・チャンギージー
+title: ［書評］『ヒトの目、驚異の進化』　マーク・チャンギージー
 date: 2020-05-09 15:44:10
 categories:
 - [書評]
@@ -12,7 +12,11 @@ photos:
 
 <meta property="og:image" content="{% post_path hitonome %}/hitonome.jpg">
 
-
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="［書評］『ヒトの目、驚異の進化』　マーク・チャンギージー" />
+<meta name="twitter:description" content="マーク・チャンギージー著『ヒトの目、驚異の進化』の書評記事です。
+とても面白く、新しい発見に満ちた本だったので書評を書いてみます。" />
+<meta name="twitter:image" content="https://github.com/westvirturegate/westvirturegate.github.io/blob/source/source/_posts/hitonome/hitonome.jpg?raw=true" />
 
 <a class="fancybox" href="https://www.amazon.co.jp/dp/4150505551/ref=cm_sw_em_r_mt_dp_U_171ZEbEN3T9DH" target="_blank">
 <img src="{% post_path hitonome %}/hitonome.jpg" width="250px"  height="100px" align="center">
